@@ -9,9 +9,10 @@ interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-	author: 'ShawnzxG', // Site author
-	title: 'Shawnzhomeg', // Site title.
-	description: 'Cool stuff here.', // Description to display in the meta tags
+	author: 'Shawnzx', // Site author
+	title: 'Shawnzhome', // Site title.
+	description:
+		'Video game content, short stories and longform novel snippets, my scholarly journey, and just my day-to-day thoughts on stuff.', // Description to display in the meta tags
 	lang: 'en-GB',
 	ogLocale: 'en_GB',
 	shareMessage: 'Share this post', // Message to share a post on social media
