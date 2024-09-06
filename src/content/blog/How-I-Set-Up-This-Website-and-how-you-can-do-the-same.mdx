@@ -1,0 +1,141 @@
+---
+heroImage: /src/assets/images/openblog.png
+category: Learning
+description: A fairly comprehensive guide to how I set up this website
+pubDate: 2024-08-18T04:00:00.000Z
+draft: true
+tags:
+  - aws
+  - nginx
+  - astro
+  - guide
+  - webdev
+title: How I Set Up This Website (and how you can do the same)
+---
+
+# **Subscriptions are Getting Expensive**
+
+It's no secret. When there are companies whose literal sole purpose is to unsubscribe you from everything you've forgotten about ("TODAY'S SPONSOR IS ROCKETMONEY"), one has to pick and choose just how much money they have to fork away to another cloud service.
+
+So why, with decades of open-source work and documentation in Web Development, should you or I need to pay monthly to do something so tedious?
+
+And with that, a quick search on Github landed me in a veritable heap of templates and creators to choose from. Now, I could do it all from scratch--I know how to, but...well, let's just say all I can remember from the Odin Project regarding CSS is the word "Flexbox". I can make it functional, yeah, but not too pretty. And looks are what matters the most, at the end of the day.
+
+But one in particular caught my eye. Minimal yet clean, no JS bloating up load times, a nice and simple search index that doesn't rely on an external database. That's the one for me.
+
+And with a short hour or two of work, we were ready to go.
+
+## **OK, so how do I do it?**
+
+Pretty simple actually. The first thing of course you'll need if you want this to be internet-facing is a domain name. You have your pick of registrars out there (a business that handles the reservation and selling of domain names), and personally I've had no issues with Cloudflare, and found their UI quite nice to navigate, but I've also never tried anything else.
+
+Once you've purchased a domain (usually a yearly reservation), you'll need to decide on where and how you're hosting the web-server itself.
+
+Skip ahead if you're a pinky-raising technical pro.
+
+##
+
+## **So, what really is a web-server?**
+
+The short and simple answer is that a web-server is simply any machine that hosts a web page through the HTTP (Hypertext Transfer Protocol) or HTTPS (all that from before, plus it's secure. Wow!) protocols and thus allows a client to connect and access it via their browser. But, of course, it's a little more complex than that.
+
+We refer to the machines that host this data as a web-server, because it is simpler and well, the job of such a machine more often than not is to serve web content. So that's not exactly a lie or anything...it just kind of isn't the whole picture.
+
+A real web-server is the software that actually binds to a socket (a port and address combination), listens for incoming connections, accepts them, and then handles their requests. A simple web-server does all of that, and in its replies can serve a hot'n'ready HTML page.
+
+**Wait...so, do I need to make my own web-server from scratch? How the-**
+
+No. You don't. Luckily, much smarter individuals than you or I (no offense), have already done so. The two primary and popular flavors being Nginx or Apache. Most of the world's internet content runs on top of these applications, and you can expect them to be adequately robust enough for any of your blogging needs.
+
+**Cool. Ok, I'm downloading Nginx right now on my Windows lap-**
+
+# Linux, the Cloud, and You
+
+If you're a beginner, and you need a step-by-step guide to setting something like this up, I bear no ill will towards you. I was in your spot once. I had no idea what I was doing, and I spent hours trying to understand what I was seeing when I opened up the once-terrifying, now comforting terminal environment.
+
+But, for the love of God, don't run a web-server on Windows.
+
+We could be here for a while if I were to start "talking" about Windows, but let me just tell you that:
+
+1. It'll run fine on Windows, but it would be like cutting bread with a chainsaw.
+2. If you're thinking of doing such, then you're probably thinking you'll just host the website at your home. I recommend strongly against this if you're not technologically literate.
+
+There's a lot of security concerns and extra headache you'll have to consider if you run a website locally. The internet is scary these days, and it'll only take one week's laziness for you to potentially fall behind on an update and expose all of your data to a bad actor.
+
+So...run it in the Cloud. And run it on Linux.
+
+I've heard of Linux! That's what the hackerman 4chan uses, right?
+
+You're absolutely right.
+
+Linux (or GNU utils + Linux kernel for the more pedantic crowd) is an Operating System designed to be as lightweight as possible while still offering everything one might need/want in order to get the most out of their computer. However, unlike its competitors Windows and Mac, it is entirely open-source (a vast majority of the popular distros (note: Distribution) are, at least) and deeply customizable. It also lacks the excessive bloatware and telemetry that Windows has, allowing you to focus your machine on a singular purpose and have it excel at that purpose.
+
+Now, you don't need to be an expert hackermans to pilot this mystical OS (I'm pretty sure MysticalOS is probably a distro name), as there's only a few main commands you actually need to memorize, and most distros also feature a fully graphical interface that is intentionally designed to be familiar to the average Joe.
+
+However, we also won't be using anything graphical. You'll be doing everything in the terminal, if I have my way.
+
+But let's go back a step.
+
+So, hopefully you've picked a cloud provider that suits you. Most of them allow you to sign up and launch a basic instance for free or close to it, only charging you pennies a day for the storage cost, unless you blow up and suddenly have thousands of users a day. Then, well, congrats! I'm jealous! I hate you!
+
+I'd advise running on Ubuntu 20.04.6 LTS. This is a server version of Ubuntu that's stripped down to most of the core utilities vital for operation and not much else. Doing this gives you a great template for getting everything you actually need without complicating your environment with rubbish.
+
+Now that you've done so, great! Give yourself a clap on the back. Now the fun part starts.
+
+## Git? Git what?
+
+If you don't already have one, you'll need a Github account. Too much to talk about there, but Github is basically a massive repository for code and applications. There's other popular ones as well, but this one is fairly user-friendly and has a lot of support and tools for making things very easy for you and I.
+
+Once you've done so, you can go ahead and pick a directory on your cloud instance to clone your repository to. This just means we're going to download the repository found
+
+<a href='[https://github.com/danielcgilibert/blog-template](https://github.com/danielcgilibert/blog-template)'>
+	Here
+</a>
+
+to our cloud PC.
+
+Now, to pull it down, we'll need a tool called Git. Before you get confused, this is application is not at all related to Github itself, though it is easy to see why you might think so. Git is a vital part of the Version Control ecosystem however, and will be how you interact with these repositories.
+
+You can check if you already have it on your cloud instance with a simple git --version command. If it returns a version number, then you have it already. Typically, Ubuntu LTS comes with it, so you likely already do, but if you don't, then you'll need to do some other steps first.
+
+## APT for You and Me
+
+APT is the advanced package tool, a standard feature of most Debian-based Linux distros. It's how you download stuff, to put it simply.
+
+Whenever downloading anything, especially on a fresh install, I recommend first running:
+
+sudo apt update
+
+A quick aside: sudoitself is an extremely powerful command that can be thought of running programs as "Admin" in Windows, except it's even more powerful than that. It is most similar to being able to run programs as SYSTEM in Windows, which allows you to do...everything. And usually, being able to do anything and everything is a bad idea for most users. You can quite literally recursively destroy the machine itself when running something with this command. So, be very careful when utilizing it.
+
+Next, let's also do a
+
+sudo apt upgrade
+
+To update everything if it isn't already. The update command we previously ran just refreshes APT's stock, so to speak, while upgrade actually downloads the updates.
+
+Now that we've done that, we can just run:
+
+sudo apt install git
+
+And enter y or yes when the prompt appears if necessary. It's that simple. You can verify the install with
+
+git --version
+
+Now, you can go ahead and clone the repo down from the link I provided, but there's some other stuff we should get to now.
+
+## SSH...no, you can talk, I just mean--forget it
+
+Security. Authentication. Encryption. Symmetric. Asymmetric. SHA. Diffie-Hellman. Lock. Key.
+
+Ahem.
+
+We'll keep this part brief.
+
+Github no longer allows you to push and pull to your Repos based on your account's password, so the easiest way now is with an SSH key. What's that? Who knows (blogpost soon hype?).
+
+Chances are you had to set up such a key to connect to your instance if you didn't figure out how to hit "Connect to Instance". If so, cool!
+
+If not, here's how you can do it.
+
+ssh-keygen -t "ed25519". This will generate a key using ed25519 encryption, which is more than sufficient for our needs. You could use RSA too for a slightly smaller overhead, but there's no real reason to.
