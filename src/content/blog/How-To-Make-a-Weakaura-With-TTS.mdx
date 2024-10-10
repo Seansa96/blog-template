@@ -1,0 +1,56 @@
+---
+heroImage: /src/assets/images/Customcodeweakaura.png
+category: World of Warcraft
+description: >-
+  A quick guide on how to make Weakauras that utilize custom TTS messages, when
+  the preset ones are not sufficient.
+pubDate: 2024-10-09T04:00:00.000Z
+tags:
+  - WoW API
+  - Weakauras
+  - World of Warcraft
+title: How To Make a Weakaura With TTS
+---
+
+The simplest way is to set up the triggers as normal. For example:
+
+Make a Weakaura that triggers on cast start, such as for a boss mechanic, or for an upcoming boss ability by hooking in to the boss timers of BigWigs.
+
+Then, go to Actions. At the bottom of Actions, you should see a checkbox that says "**Custom**".
+
+<img
+	src='https://cdn.shawnzhome.com/shawnzhome/images/Write-ups/TTS-WeakAuras/Customcodeweakaura.png'
+	width='720'
+	height='720'
+	loading='lazy'
+/>
+
+Click on that, and a field to enter in custom scripts should open. You don't need to tell Weakauras to "run" the script. You can just enter in whatever script you want as is.
+
+So, for this, the CVar to run TTS is:
+
+`C_VoiceChat.SpeakText(voiceID, text, destination, rate, volume);`
+
+Where text should be a string, as in encapsulated within quotes.
+
+**Destination should generally be, " Enum.VoiceTtsDestination.LocalPlayback"**
+
+Rate is a value in the range 0-10 for faster speech, while 0-(-10) is slower speech.
+
+Volume is self explanatory.
+
+You can test what the TTS should sound like by just running this with `/run` prepended to it.
+
+So,
+
+`/run C_VoiceChat.SpeakText(0, "Watch Balls", Enum.VoiceTtsDestination.LocalPlayback, 0, 100)`
+for example. Just remember a semicolon should be included when inputting your script into the Weakaura Custom code block.
+
+Here's what it should look like for a Weakaura to say, "Check Markers", for example.
+
+<img
+	src='https://cdn.shawnzhome.com/shawnzhome/images/Write-ups/TTS-WeakAuras/CheckMarkers.png'
+	width='720'
+	height='720'
+	loading='lazy'
+/>
