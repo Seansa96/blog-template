@@ -1,0 +1,31 @@
+---
+heroImage: /src/assets/images/Customcodeweakaura.png
+category: World of Warcraft
+description: 'An introduction to coding your own Weakauras for the World of Warcraft: Retail'
+pubDate: 2024-11-01T04:00:00.000Z
+tags:
+  - Lua
+  - Weakauras
+  - World of Warcraft
+title: 'How to Code Your Own Weakauras: An Introduction'
+---
+
+The first thing I should mention is that Weakauras has fairly good documentation, and if you're ever in doubt on anything you should start there, or rather, <a href="https://github.com/WeakAuras/WeakAuras2/wiki">here</a>.
+
+We'll assume you're familiar with most programming concepts in this article. I won't attempt to teach you everything about coding, or about Lua--or about Weakauras. I intend to just get you right into the action and understanding what exactly is needed to make a Weakaura work in the first place.
+
+## So Let's Init
+
+It's generally good practice (and if you ever take a look at some custom Weakauras, you'll see it all over the place) to do most of the big declaratione **Init** custom code field of your Weakaura. Init is shorthand for initialization, which is a reference to when your Weakaura is first loaded into memory. It is also important to remember that **this block will only run once**, and so any changes made here will require a reloading of the UI to propagate fully and overtake the cached environment. Thus, it is most efficient and performant to do a good deal of declaration here instead of compounding that into the same steps as triggering the Weakaura itself, which depending on how you have it configured can cause resource-intensive operations like updating the state of the Weakaura on every frame.
+
+As Lua is all about tables, Weakauras leverages this to create its own localized global scope in place of \_G, referred to as the **aura_env** for each individual Weakaura.
+
+For example, one might wish to create a simple Weakaura to send a message in chat. Of course, with such a simple function it is fairly easy to go directly to the **Actions** tab and change the message accordingly, but a more appropriate and scalable method would be to use this **aura_env** table.
+
+So, they might simply add a new variable to the table called, "aura_env.chat_message", and assign it a string of their liking. Then, they need only set the chat message tab to print out this "aura_env.chat_message", and changing the assigned value of this variable will affect what is printed out to the chat. Here's a fairly simple implementation of such:
+
+```
+aura_env.chat_message = "Hello World!"
+```
+
+And that is all that needs to be done. As mentioned previously, the Weakaura will initialize and load into memory, gather all the necessary variables and items onto its own stack and keep them as such until updated by other events, if pertinent, until the next reload of the UI.
