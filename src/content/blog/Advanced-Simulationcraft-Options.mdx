@@ -1,0 +1,161 @@
+---
+heroImage: /src/assets/images/simulationcraft.png
+category: World of Warcraft
+description: >-
+  How to do some advanced options in Simulation Craft to improve the accuracy of
+  your sims.
+pubDate: 2025-07-17T04:00:00.000Z
+tags:
+  - World of Warcraft
+  - Simming
+title: Advanced Simulationcraft Options
+---
+
+For custom actions, you'll want to append lines to the simc input (containing your character data)
+
+Here's a custom override to use bloodlust at 240 seconds into a fight, for example.
+
+
+
+```
+# Shawnzdh - Havoc - 2025-05-20 17:22 - US/Illidan
+# SimC Addon 11.1.5-01
+# WoW 11.1.5.60822, TOC 110105
+# Requires SimulationCraft 1000-01 or newer
+
+demonhunter="Shawnzdh"
+level=80
+race=night_elf
+region=us
+server=illidan
+role=attack
+professions=blacksmithing=100/leatherworking=100
+spec=havoc
+# loot_spec=havoc
+
+talents=CEkAEDLOxe3SEPP2R8Hw6bhoSYGMzMzYMzMjZmJmZGAAAAAAwsZMbzwMzsNzMbWmlxwMzwYZb2mBDjtNmkhZmBsA
+
+# Saved Loadout: pvp talents
+# talents=CEkAEDLOxe3SEPP2R8Hw6bhoSwMjxMzwMmZMmxMMAAAAAAAzywYmxMzsNzMbzysMGmLYwYbb2mZZWmZmZZZWGjZYmZMYD
+# Saved Loadout: aldrachi raid st
+# talents=CEkAEDLOxe3SEPP2R8Hw6bhoSYGMzMzYMzMjZmBzMDAAAAAAY2MmtZYmZ2mZmNLzyYYmZYssNbzghx2GDMMzMgF
+# Saved Loadout: aldrachi m+ eb
+# talents=CEkAEDLOxe3SEPP2R8Hw6bhoSYmZmxMzYMzMjxMMzMDAAAAAAYWMGzwMzsxMb2mlZGMzwYZbWmBDjtNGYGPwMDDL
+# Saved Loadout: chinese M+
+# talents=CEkAEDLOxe3SEPP2R8Hw6bhoSYmZmZmZGjZmZMmhhZAAAAAAAzixYmxMzsNmZDLzMYMMW2mtZwwYbjBmxMzwwC
+# Saved Loadout: aldrachi raid st 11.1
+# talents=CEkAEDLOxe3SEPP2R8Hw6bhoSYGMzMzYMzMjZmBzMDAAAAAAY2MzsNDMz2MzshlZwMzYGLbz2MYYssxADzMzAL
+
+# Waterworks Filtration Mask (684)
+head=,id=234498,enchant_id=7931,gem_id=213458,bonus_id=10390/6652/11964/10383/12055/12376/1533/10255
+# Amulet of Earthen Craftsmanship  (681)
+neck=,id=215136,gem_id=213458/213458,bonus_id=10421/9633/8902/10879/10396/9627/12040/8791/12043/12373,crafted_stats=49/40,crafting_quality=5
+# Fel-Dealer's Recycled Reavers (684)
+shoulder=,id=229314,bonus_id=11962/10390/6652/12179/12376/1533/10255
+# Fel-Dealer's Fur Shawl (684)
+back=,id=229311,enchant_id=7409,bonus_id=6652/10390/12376/1533/10255
+# Fel-Dealer's Soul Engine (684)
+chest=,id=229319,enchant_id=7364,bonus_id=11958/10390/6652/12178/12376/1533/10255
+# Rune-Branded Armbands  (681)
+wrist=,id=219334,enchant_id=7388,bonus_id=10421/9633/8902/9627/12043/11941/8790/12040/12176/12373,crafted_stats=40/32,crafting_quality=5
+# Fel-Dealer's Underhandlers (684)
+hands=,id=229317,bonus_id=6652/10390/12179/11959/12376/1533/10255
+# Fel-Dealer's Waistwrap (684)
+waist=,id=229313,bonus_id=40/12176/10356/8095/12376/1533/10255
+# Fel-Dealer's Fur Kilt (684)
+legs=,id=229315,enchant_id=7601,bonus_id=11961/10390/6652/12178/12376/1533/10255
+# Machinist's Treasured Treads (684)
+feet=,id=168975,enchant_id=7423,bonus_id=10390/6652/11964/10383/12376/11346/10255
+# Fleshfused Circle (671)
+finger1=,id=178869,enchant_id=7334,gem_id=213743/213458,bonus_id=10390/6652/10383/10879/10396/12372/9980/10255
+# Cyrce's Circlet (658)
+finger2=,id=228411,enchant_id=7352,gem_id=228638/228639/228640,bonus_id=12028/1511
+# Improvised Seaforium Pacemaker (671)
+trinket1=,id=232541,bonus_id=10390/6652/10383/12372/1507/10255
+# Suspicious Energy Drink (671)
+trinket2=,id=235363,bonus_id=6652/12372/1543/10255
+# Crowd Favorite (684)
+main_hand=,id=228904,enchant_id=7439,bonus_id=6652/10356/12376/1533/10255
+# Everforged Warglaive  (681)
+off_hand=,id=222441,enchant_id=7439,bonus_id=10421/9633/8902/9627/8791/12040/12043/11300/8960/12373,crafted_stats=36/49,crafting_quality=5
+
+### Gear from Bags
+#
+# Rune-Branded Hood  (675)
+# head=,id=219329,bonus_id=10421/9633/8902/9627/12043/8790/12040/12176,crafted_stats=36/49,crafting_quality=5
+#
+# Heart of Azeroth (371)
+# neck=,id=158075,bonus_id=6316/4932/4933/1551
+#
+# Ashjra'kamas, Shroud of Resolve (155)
+# back=,id=169223,enchant_id=6204,bonus_id=6577/1472
+#
+# Adrenal Surge Clasp  (675)
+# waist=,id=219502,bonus_id=10421/9633/8902/8960/9627/12043/12040/12176,crafting_quality=5
+#
+# Mekgineer's Championship Belt (671)
+# waist=,id=168957,bonus_id=10390/6652/12176/11964/10383/12372/10060/10255
+#
+# Boots of the Insatiable Vision (636)
+# feet=,id=236821,bonus_id=11966/6652/11977/1485/10255
+#
+# Rune-Branded Kickers  (636)
+# feet=,id=219327,enchant_id=7424,bonus_id=10421/9633/8902/9627/11144/8791/10222,crafted_stats=32/49,crafting_quality=5
+#
+# Wick's Golden Loop (671)
+# finger1=,id=221099,enchant_id=7334,gem_id=213743/213479,bonus_id=10390/41/10383/10879/10396/12372/3163/10255
+#
+# Footbomb Championship Ring (675)
+# finger1=,id=159462,bonus_id=10390/6652/10395/10393/10383/11995/11356/10255
+#
+# Hoop of the Blighted (658)
+# finger1=,id=221197,enchant_id=7334,gem_id=213743/213458,bonus_id=6652/10383/11215/11984/3150/10255/10879/10396
+#
+# Faded Championship Ring (652)
+# finger1=,id=228840,bonus_id=6652/10395/10392/10355/11986/1501/10255
+#
+# Ring of Earthen Craftsmanship  (636)
+# finger1=,id=215135,enchant_id=7334,gem_id=213743/213458,bonus_id=10421/9633/8902/10879/10396/9627/10222/8791/11144,crafted_stats=36/49,crafting_quality=5
+#
+# Ringing Ritual Mud (665)
+# trinket1=,id=232543,bonus_id=10390/6652/10383/11990/1501/10255
+#
+# Junkmaestro's Mega Magnet (671)
+# trinket1=,id=230189,bonus_id=6652/10355/12372/1520/10255
+#
+# Signet of the Priory (671)
+# trinket1=,id=219308,bonus_id=10390/6652/10383/12372/3163/10255
+#
+# Eye of Kezan (671)
+# trinket1=,id=230198,bonus_id=6652/10355/12372/1520/10255
+#
+# Everforged Warglaive  (681)
+# main_hand=,id=222441,enchant_id=7439,bonus_id=10421/9633/8902/9627/8791/12040/12043/12373,crafted_stats=40/49,crafting_quality=5
+#
+# Sonic Ka-BOOM!-erang (665)
+# main_hand=,id=234491,enchant_id=7463,bonus_id=10390/6652/10384/11990/1514/10255
+
+### Additional Character Info
+#
+# catalyst_currencies=2813:8/3116:0
+#
+# upgrade_currencies=c:1792:613/c:3108:16/c:3110:57/c:2122:15/c:3008:2000/c:3107:36/c:3109:2/i:210233:6/i:197921:2
+#
+# slot_high_watermarks=0:684:684/1:681:684/2:684:684/3:684:684/4:684:684/5:684:684/6:684:684/7:681:681/8:684:684/9:671:675/10:671:671/11:684:684/12:0:684/13:61:675/14:684:684/15:681:681/16:10:684
+#
+# upgrade_achievements=40107/40115/40118/40939/40942/40943/40944/40945
+
+
+# Saved Loadout: Aldrachi EB
+# talents=CEkAEDLOxe3SEPP2R8Hw6bhoSYGMzMzYMzMjZmJmZGAAAAAAwsZMbzwMzsNzMbWmlxwMzwYZb2mBDjtNmkhZmBsA
+
+# Checksum: eb6867fb
+
+bloodlust_time=240
+```
+
+# Bloodlust 
+
+bloodlust_time or bloodlust_percent
+
+	Both of these will allow you to control when the bloodlust occurs. Percent just uses it when the boss reaches a certain amount of HP.
